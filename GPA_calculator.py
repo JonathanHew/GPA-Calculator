@@ -1,6 +1,7 @@
 print("GPA Calculator")
 
-total = 0
+allGradePoints = 0
+allCredits = 0
 
 # asking user to inout the amount of modules to be included in the GPA
 num_modules = int(input("How many modules did you study? "))
@@ -27,7 +28,15 @@ for i in range(num_modules):
     else:
         gradePointValue = 4.0
 
-    print(gradePointValue)
+    # working out the total grade points for this module (GPV * credit)
+    totalGradePoint = gradePointValue * credit
+    # adding this grade point for this module to the total for all modules
+    allGradePoints = allGradePoints + totalGradePoint
+    # adding this credit for this module to the total amount of credits
+    allCredits = allCredits + credit
+
+GPA = allGradePoints / allCredits
+print("Your GPA is " + str(round(GPA, 2)))
     
 
 
